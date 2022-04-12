@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct MovieSearchRequest: Codable {
+struct MovieSearchRequestModel: Codable {
     let query: String
 }
