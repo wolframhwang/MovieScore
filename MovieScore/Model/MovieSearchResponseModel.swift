@@ -14,9 +14,11 @@ struct MovieSearchResponseModel: Decodable {
 
 struct Movie: Decodable {
     let title: String
-    let image: String
+    private let image: String
     let userRating: String
     let actor: String
     let director: String
     let pubDate: String
+    
+    var imageURL: URL? { URL(string: image) }
 }
