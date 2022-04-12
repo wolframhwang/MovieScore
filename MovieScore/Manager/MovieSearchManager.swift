@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 struct MovieSearchManager {
-    func request(from keyword: String) {
+    func request(from keyword: String, completionHandler: @escaping (([Movie]) -> Void)) {
         guard let url = URL(string: "https://openapi.naver.com/v1/search/movie.json")
         else { return }
         
@@ -19,10 +19,11 @@ struct MovieSearchManager {
         AF.request(url, method: .get, parameters: parameters, headers: headers).responseDecodable(of: MovieSearchResponseModel.self) { response in
             switch response.result {
             case .success(let result):
-                
+                completionHandler(result.items)
             case .failure(let error):
                 print(error)
             }
         }
+        .resume()
     }
 }
