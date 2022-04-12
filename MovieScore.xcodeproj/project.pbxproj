@@ -129,7 +129,7 @@
 				7B9969F12801C23B008ED2DC /* Assets.xcassets */,
 				7B9969F32801C23B008ED2DC /* LaunchScreen.storyboard */,
 				7B9969F62801C23B008ED2DC /* Info.plist */,
-				7BDC6A392805D67A0038C131 /* MovieSearchManager.swift */,
+				7BDC6A3B2805D6940038C131 /* Manager */,
 			);
 			path = MovieScore;
 			sourceTree = "<group>";
@@ -159,6 +159,14 @@
 				7BDC6A372805D6490038C131 /* Movie.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7BDC6A3B2805D6940038C131 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7BDC6A392805D67A0038C131 /* MovieSearchManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		D5EBF38783936F3D0F07D3F2 /* Frameworks */ = {
