@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieListProtocol: AnyObject {
-    
+    func setupNavigationBar()
 }
 
 final class MovieListPresenter {
@@ -16,5 +16,9 @@ final class MovieListPresenter {
     
     init(viewController: MovieListProtocol) {
         self.viewController = viewController
+    }
+    
+    func viewDidLoad() {
+        viewController?.setupNavigationBar()
     }
 }

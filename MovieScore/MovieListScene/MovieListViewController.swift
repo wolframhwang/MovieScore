@@ -12,12 +12,18 @@ final class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.viewDidLoad()
     }
 
 
 }
 
 extension MovieListViewController: MovieListProtocol {
-    
+    func setupNavigationBar() {
+        navigationItem.title = "영화 점수"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+    }
 }
 
