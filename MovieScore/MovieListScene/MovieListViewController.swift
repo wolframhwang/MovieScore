@@ -17,6 +17,7 @@ final class MovieListViewController: UIViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = presenter
         collectionView.dataSource = presenter
+        collectionView.register(MovieListCollectionViewCell.self, forCellWithReuseIdentifier: MovieListCollectionViewCell.identifier)
         
         return collectionView
     }()
