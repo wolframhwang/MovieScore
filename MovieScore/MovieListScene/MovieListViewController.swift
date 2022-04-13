@@ -12,11 +12,12 @@ final class MovieListViewController: UIViewController {
     private lazy var presenter = MovieListPresenter(viewController: self)
     private let searchController = UISearchController()
     private lazy var collectionView: UICollectionView = {
-        let collectionViewLayout = UICollectionViewLayout()
+        let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = presenter
         collectionView.dataSource = presenter
+
         collectionView.register(MovieListCollectionViewCell.self, forCellWithReuseIdentifier: MovieListCollectionViewCell.identifier)
         
         return collectionView
