@@ -7,12 +7,17 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+final class MovieListViewController: UIViewController {
+    private lazy var presenter = MovieListPresenter(viewController: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
 
+}
+
+extension MovieListViewController: MovieListProtocol {
+    
 }
 
