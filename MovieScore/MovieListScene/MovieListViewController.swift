@@ -6,10 +6,20 @@
 //
 
 import UIKit
+import SnapKit
 
 final class MovieListViewController: UIViewController {
     private lazy var presenter = MovieListPresenter(viewController: self)
     private let searchController = UISearchController()
+    private lazy var collectionView: UICollectionView = {
+        let collectionViewLayout = UICollectionViewLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.delegate = presenter
+        collectionView.dataSource = presenter
+        
+        return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +42,14 @@ extension MovieListViewController: MovieListProtocol {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = presenter
         navigationItem.searchController = searchController
+    }
+    
+    func setupViews() {
+        view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
 
