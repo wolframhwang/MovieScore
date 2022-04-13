@@ -32,14 +32,28 @@ extension MovieListPresenter: UISearchBarDelegate {
 }
 
 extension MovieListPresenter: UICollectionViewDelegateFlowLayout {
-    
-}
-extension MovieListPresenter: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 16.0
+        let width: CGFloat = (collectionView.frame.width - spacing * 3) / 2
+        return CGSize(width: width, height: 210)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let inset: CGFloat = 16.0
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+}
+
+extension MovieListPresenter: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieListCollectionViewCell.identifier, for: indexPath) as? MovieListCollectionViewCell
+
+        cell?.backgroundColor = .red
+        
+        return cell ?? UICollectionViewCell()
     }
 }
